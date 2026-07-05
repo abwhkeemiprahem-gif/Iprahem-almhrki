@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  direction: rtl;
+  text-align: right;
+  background-color: #020617; /* slate-950 */
+  color: #f1f5f9; /* slate-200 */
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for an ultra-premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b; /* slate-800 */
+  border-radius: 0px; /* geometric sharp corners */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Premium Light Mode Overrides */
+html.light body {
+  background-color: #f8fafc !important; /* slate-50 */
+  color: #0f172a !important; /* slate-900 */
+}
+
+html.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-slate-900 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-slate-900\/10 {
+  background-color: rgba(241, 245, 249, 0.4) !important;
+}
+
+html.light .bg-slate-900\/50 {
+  background-color: rgba(241, 245, 249, 0.8) !important;
+}
+
+html.light .bg-slate-950\/90 {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+}
+
+html.light .bg-slate-950\/80 {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-400 {
+  color: #334155 !important; /* darker text for high contrast readability */
+}
+
+html.light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-500 {
+  color: #475569 !important;
+}
+
+html.light .border-slate-800 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .hover\:bg-slate-900:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .hover\:bg-slate-900\/50:hover {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .hover\:bg-slate-800:hover {
+  background-color: #cbd5e1 !important;
+}
+
+html.light .hover\:border-cyan-500:hover {
+  border-color: #0891b2 !important;
+}
+
+html.light .bg-white {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light .text-slate-950 {
+  color: #ffffff !important;
+}
+
+html.light .bg-slate-900\/60 {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .bg-slate-950\/50 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .hover\:bg-cyan-400:hover {
+  background-color: #0891b2 !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-slate-900\/100 {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-cyan-500\/10 {
+  background-color: rgba(8, 145, 178, 0.1) !important;
+}
+
+html.light .bg-slate-950\/90 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+/* Scrollbar light mode */
+html.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ==========================================
+   MEDIA-SPECIFIC PRINT CSS RULES
+   For professional, high-contrast PDF printing
+   ========================================== */
+@media print {
+  /* Set clean black & white printing background and clear borders */
+  body, html {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    font-family: system-ui, -apple-system, sans-serif !important;
+    font-size: 10.5pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive, floating, custom or ink-heavy modules */
+  header,
+  footer,
+  form,
+  button,
+  iframe,
+  [role="dialog"],
+  .fixed,
+  .absolute.top-8,
+  .print\:hidden,
+  #hero,
+  #testimonials,
+  #contact,
+  #payments-contact {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Reset container backgrounds, borders, shadows, and text colors */
+  * {
+    background: transparent !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #d1d5db !important;
+  }
+
+  main {
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  /* Portfolio, Services, and Roadmap sections optimization */
+  #portfolio, 
+  #services, 
+  #roadmap {
+    display: block !important;
+    visibility: visible !important;
+    page-break-before: always !important;
+    padding: 1.5cm 0 !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+
+  /* Prevent sections or headers from getting orphan headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-weight: 800 !important;
+    page-break-after: avoid !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.5em !important;
+  }
+
+  p, li, span, div {
+    color: #374151 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Render grids as cleanly structured vertical lists */
+  .grid {
+    display: block !important;
+  }
+
+  /* Optimize Project, Service and Roadmap cards inside print format */
+  [id^="project-card-"],
+  [id^="service-card-"],
+  .roadmap-step {
+    page-break-inside: avoid !important;
+    display: block !important;
+    margin-bottom: 1.2cm !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    border-radius: 0px !important;
+  }
+
+  /* Custom icon strokes printable in solid black */
+  svg, .lucide {
+    stroke: #111827 !important;
+    fill: none !important;
+  }
+
+  /* Ensure URLs or features lists are well-aligned */
+  ul {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+}
+

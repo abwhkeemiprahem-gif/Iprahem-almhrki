@@ -1,0 +1,6 @@
+{
+  "name": "المهندس الاستشاري | معرض الأعمال والخدمات",
+  "description": "معرض أعمال وخدمات برمجية واستشارية متكاملة لمهندس البرمجيات والمستشار التقني للحلول السيادية والأتمتة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

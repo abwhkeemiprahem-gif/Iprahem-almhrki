@@ -1,0 +1,83 @@
+{
+  "entities": {
+    "TechnicalAudit": {
+      "title": "TechnicalAudit",
+      "description": "Information about a user submitted request for a technical quality/security audit",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for the audit request"
+        },
+        "name": {
+          "type": "string",
+          "description": "Applicant's full name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Applicant's email address"
+        },
+        "service": {
+          "type": "string",
+          "description": "The selected type of service or inquiry"
+        },
+        "budget": {
+          "type": "string",
+          "description": "Approximate budget range"
+        },
+        "message": {
+          "type": "string",
+          "description": "Detailed description or questions from the applicant"
+        },
+        "requestedAudit": {
+          "type": "boolean",
+          "description": "Whether a technical quality audit report is requested"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "reviewed", "completed"],
+          "description": "Submission review state"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Standard timestamp when the audit was created"
+        }
+      },
+      "required": ["id", "name", "email", "service", "budget", "message", "requestedAudit", "status", "createdAt"]
+    },
+    "NewsletterSubscription": {
+      "title": "NewsletterSubscription",
+      "description": "User subscription details for the newsletter",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID or email hash"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address"
+        },
+        "subscribedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the user subscribed"
+        }
+      },
+      "required": ["id", "email", "subscribedAt"]
+    }
+  },
+  "firestore": {
+    "/technical_audits/{auditId}": {
+      "schema": "TechnicalAudit",
+      "description": "Sovereign audit requests and contact submissions"
+    },
+    "/newsletter_subscriptions/{subscriptionId}": {
+      "schema": "NewsletterSubscription",
+      "description": "Newsletter email subscriptions"
+    }
+  }
+}
